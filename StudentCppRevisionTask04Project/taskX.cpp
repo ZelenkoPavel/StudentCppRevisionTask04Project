@@ -1,5 +1,6 @@
 #include "tasks.h"
 
+
 /*	Task 02. The Digital Watch [электронные часы]
 *
 *	Электронные часы показывают время в формате h:mm:ss (от 0:00:00 до 23:59:59),
@@ -35,5 +36,28 @@
 */
 
 string taskX(int number) {
-	return "error";
+	if (number < 0) {
+		return "error";
+	}
+
+	string time = "";
+
+	int hours = number / 3600;
+	number = number % 3600;
+	int minutes = number / 60;
+	number = number % 60;
+	int seconds = number;
+
+	while (hours > 23) {
+		hours -= 24;
+	}
+
+	time += to_string(hours) + ":";
+	time += minutes < 10 ? "0" : "";
+	time += to_string(minutes) + ":";
+	time += seconds < 10 ? "0" : "";
+	time += to_string(seconds);
+	
+
+	return time;
 }
