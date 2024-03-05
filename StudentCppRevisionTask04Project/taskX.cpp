@@ -42,15 +42,13 @@ string taskX(int number) {
 
 	string time = "";
 
-	int hours = number / 3600;
+	int hours = number / 3600 % 24;
 	number = number % 3600;
 	int minutes = number / 60;
 	number = number % 60;
 	int seconds = number;
 
-	while (hours > 23) {
-		hours -= 24;
-	}
+
 
 	time += to_string(hours) + ":";
 	time += minutes < 10 ? "0" : "";
